@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define N 5
+int main(){
+	char stuid[10],name[10];
+	float score;
+	FILE*outfile;
+	int i;
+	outfile=fopen("score.txt","w");
+	if (outfile==NULL){
+		printf("不能创建\n");
+		exit(0) ;
+	}
+	fprintf(outfile,"学号\t姓名\t入学成绩\n");
+	for(i=0;i<N;i++){
+		printf("输入学号、姓名、入学成绩（空格分开):");
+		scanf("%s%s%f",stuid,name,&score);
+		fprintf(outfile,"%s\t%s\t%f\n",stuid,name,score);
+	}
+	fclose(outfile);
+	return 0;
+	
+	
+}
